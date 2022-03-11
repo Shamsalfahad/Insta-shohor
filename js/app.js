@@ -1,3 +1,4 @@
+// six issue solved
 let posts=[ ];
 
 const likedPostsId = [];
