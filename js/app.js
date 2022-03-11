@@ -16,7 +16,9 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.plus(id); 
+  // console.log(id)
+  // console.log(likedPostsId)
+    likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -27,7 +29,8 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-    return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+  // console.log(text)
+    return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
@@ -41,7 +44,7 @@ const switchTab = (id) => {
         document.getElementById( "reported" ).style.display = "none";
 
         displayLikedPosts();
-    } else {
+    } else if(id==="reported") {
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
@@ -51,6 +54,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+  // console.log(post.comments[0].user)
     const image = post.image;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
@@ -62,7 +66,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                    <img src="${post.userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
@@ -120,9 +124,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post.comments[0].user}
                       </a>
-                      ${post.comments?.text}
+                      ${post.comments[0].text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
@@ -130,6 +134,7 @@ const createPost = (post) => {
               </div>
       `;
     return div;
+    
 };
 
 const showPosts = (posts) => {
@@ -143,7 +148,9 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  // getLikedPosts();
     const likedPosts = getLikedPosts();
+    document.getElementById('liked').innerHTML='';
     likedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "liked" ).appendChild(div);
@@ -152,16 +159,21 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    document.getElementById('reported').innerHTML='';
+    reportedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
 };
 
+console.log(likedPostsId)
+
 const loadPosts = async () =>{
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
+  // console.log(data)
+  // console.log(posts)
 }
 
 loadPosts();

@@ -28,6 +28,10 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
     </head>
 
     <body>
@@ -77,6 +81,65 @@
                 <h1>Reported posts</h1>
             </div>
         </main>
+
+        <marquee class="fw-bolder" behavior="scroll" direction="right" scrollamount="20"><span style="color: rgb(0, 26, 255);">javascript Questions</span></marquee>
+
+        <section class="container">
+            <h1 class="text-center">How does javascript work?</h1>
+            <p>JavaScript is a client-side scripting language and one of the most efficient, commonly used scripting languages. The term. client-side scripting language means that it runs at the client-side or on the client machine inside the web-browsers, but one important thing to remember is that client's web-browser also needs to support the JavaScript or it must be JavaScript enabled.JavaScript has become a staple in modern web development. This powerful language has evolved into an essential tool for any web developer to understand.JavaScript has special features that make it different from traditional programming languages.</p>
+
+            <h1 class="text-center">What does javascript event loop do?</h1>
+            <p>JavaScript event loop the take of a single threaded asynchronus programming language.JS executes all operations on a single thread, but using a few smart data structures, it gives us the illusion of multi-threading. <br>
+            Example of this is the <span style="color: rgb(255, 17, 0); background-color: rgb(13, 240, 70);">setTimeout</span> method. When a setTimeout operation is processed in the stack, it is sent to the corresponding API which waits till the specified time to send this operation back in for processing. <br>
+            The event loop got its name because of how it's usually implemented, which usually resembles: <br>
+            <span style="color: rgb(0, 81, 255);" >while (queue.waitForMessage()) { <br>
+                queue.processNextMessage() <br>
+              }</span><br>
+            queue.waitForMessage() waits synchronously for a message to arrive, If one is not already available and waiting to be handled.
+        </p>
+
+            <h1 class="text-center pb-2">Difference between local storage and session storage</h1>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="table-secondary">Number</th>
+                    <th scope="col" class="table-secondary">Local Storage</th>
+                    <th scope="col" class="table-secondary">Session Storage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="table-light">1</th>
+                    <td class="table-info">The storage capacity of local storage is 5 MB to 10 MB.</td>
+                    <td class="table-info">They have a limit of around 5MB of storage space.</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-light">2</th>
+                    <td class="table-info">As it is not session-based, it must be deleted via javascript or manually.</td>
+                    <td class="table-info">It’s session-based and works per window or tab. This means that data is stored only for the duration of a session,until the browser or tab is closed.</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-light">3</th>
+                    <td class="table-info">The client  can only read local storage.</td>
+                    <td class="table-info">The client can only read local storage.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-light">4</th>
+                    <td class="table-info">There is no transfer of data to the server.</td>
+                    <td class="table-info">There is no transfer of data to the server.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="table-light">5</th>
+                    <td class="table-info">There are fewer old browsers that support it.</td>
+                    <td class="table-info">There are fewer old browsers that support it.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+        </section>
         <footer></footer>
 
         <!-- add javascript  file  -->
